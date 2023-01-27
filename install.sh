@@ -32,8 +32,8 @@ sudo -H python3 -m pip install git+https://github.com/ipython/traitlets@dead2b8c
 
 # Install JupyterLab (lock to 2.2.6, latest as of Sept 2020)
 echo "\e[48;5;172m Install Jupyter Lab 2.2.6 \e[0m"
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt install -y nodejs libffi-dev libssl1.0-dev 
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt install -y nodejs libffi-dev libssl1.1
 sudo -H pip3 install jupyter jupyterlab==2.2.6 --verbose
 sudo -H jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
@@ -52,7 +52,7 @@ sudo -H jupyter labextension install js
 sudo -H jupyter lab build
 
 # fix for permission error
-sudo chown -R jetson:jetson /usr/local/share/jupyter/lab/settings/build_config.json
+sudo chown -R rpdzkj:rpdzkj /usr/rpdzkj:local/share/jupyter/lab/settings/build_config.json
 
 # install version of traitlets with dlink.link() feature
 # (added after 4.3.3 and commits after the one below only support Python 3.7+) 
@@ -86,11 +86,11 @@ sudo systemctl enable jetcard_display
 sudo systemctl start jetcard_display
 
 # Install jetcard jupyter service
-echo "\e[44m Install jetcard jupyter service \e[0m"
-python3 -m jetcard.create_jupyter_service
-sudo mv jetcard_jupyter.service /etc/systemd/system/jetcard_jupyter.service
-sudo systemctl enable jetcard_jupyter
-sudo systemctl start jetcard_jupyter
+#echo "\e[44m Install jetcard jupyter service \e[0m"
+#python3 -m jetcard.create_jupyter_service
+#sudo mv jetcard_jupyter.service /etc/systemd/system/jetcard_jupyter.service
+#sudo systemctl enable jetcard_jupyter
+#sudo systemctl start jetcard_jupyter
 
 # Make swapfile
 echo "\e[46m Make swapfile \e[0m"
