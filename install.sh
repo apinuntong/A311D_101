@@ -2,7 +2,7 @@
 
 set -e
 
-password='rpdzkj:'
+password='rpdzkj'
 
 # Record the time this script starts
 date
