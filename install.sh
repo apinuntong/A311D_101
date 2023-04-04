@@ -42,17 +42,17 @@ python3 -c "from notebook.auth.security import set_password; set_password('$pass
 
 
 # Install jupyter_clickable_image_widget
-echo "\e[42m Install jupyter_clickable_image_widget \e[0m"
-cd
-git clone https://github.com/jaybdub/jupyter_clickable_image_widget
-cd jupyter_clickable_image_widget
-git checkout tags/v0.1
-sudo -H pip3 install -e .
-sudo -H jupyter labextension install js
-sudo -H jupyter lab build
+# echo "\e[42m Install jupyter_clickable_image_widget \e[0m"
+# cd
+# git clone https://github.com/jaybdub/jupyter_clickable_image_widget
+# cd jupyter_clickable_image_widget
+# git checkout tags/v0.1
+# sudo -H pip3 install -e .
+# sudo -H jupyter labextension install js
+# sudo -H jupyter lab build
 
 # fix for permission error
-sudo chown -R rpdzkj:rpdzkj /usr/rpdzkj:local/share/jupyter/lab/settings/build_config.json
+# sudo chown -R rpdzkj:rpdzkj /usr/rpdzkj:local/share/jupyter/lab/settings/build_config.json
 
 # install version of traitlets with dlink.link() feature
 # (added after 4.3.3 and commits after the one below only support Python 3.7+) 
@@ -79,18 +79,18 @@ sudo -H pip3 install flask
 sudo -H python3 setup.py install
 
 # Install jetcard display service
-echo "\e[44m Install jetcard display service \e[0m"
-python3 -m jetcard.create_display_service
-sudo mv jetcard_display.service /etc/systemd/system/jetcard_display.service
-sudo systemctl enable jetcard_display
-sudo systemctl start jetcard_display
+# echo "\e[44m Install jetcard display service \e[0m"
+# python3 -m jetcard.create_display_service
+# sudo mv jetcard_display.service /etc/systemd/system/jetcard_display.service
+# sudo systemctl enable jetcard_display
+# sudo systemctl start jetcard_display
 
 # Install jetcard jupyter service
-#echo "\e[44m Install jetcard jupyter service \e[0m"
-#python3 -m jetcard.create_jupyter_service
-#sudo mv jetcard_jupyter.service /etc/systemd/system/jetcard_jupyter.service
-#sudo systemctl enable jetcard_jupyter
-#sudo systemctl start jetcard_jupyter
+echo "\e[44m Install jetcard jupyter service \e[0m"
+python3 -m a311d.create_jupyter_service
+sudo mv a311d_jupyter.service /etc/systemd/system/a311d_jupyter.service
+sudo systemctl enable a311d_jupyter
+sudo systemctl start a311d_jupyter
 
 # Make swapfile
 echo "\e[46m Make swapfile \e[0m"
