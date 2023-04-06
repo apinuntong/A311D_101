@@ -32,9 +32,9 @@ sudo -H python3 -m pip install git+https://github.com/ipython/traitlets@dead2b8c
 
 # Install JupyterLab (lock to 2.2.6, latest as of Sept 2020)
 echo "\e[48;5;172m Install Jupyter Lab 2.2.6 \e[0m"
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install -y nodejs libffi-dev libssl1.1
-sudo -H pip3 install jupyter jupyterlab==2.2.6 --verbose
+sudo -H pip3 install jupyter jupyterlab==3.4.5 --verbose
 sudo -H jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 jupyter lab --generate-config
