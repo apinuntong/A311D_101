@@ -96,11 +96,11 @@ sudo systemctl start a311d_jupyter
 echo "\e[46m Make swapfile \e[0m"
 cd
 if [ ! -f /var/swapfile ]; then
-	sudo fallocate -l 2G /var/swapfile
-	sudo chmod 600 /var/swapfile
-	sudo mkswap /var/swapfile
-	sudo swapon /var/swapfile
-	sudo bash -c 'echo "/var/swapfile swap swap defaults 0 0" >> /etc/fstab'
+	sudo fallocate -l 4G /swapfile
+	sudo chmod 600 /swapfile
+	sudo mkswap /swapfile
+	sudo swapon /swapfile
+	sudo bash -c 'echo "/swapfile swap swap defaults 0 0" >> /etc/fstab'
 else
 	echo "Swapfile already exists"
 fi
